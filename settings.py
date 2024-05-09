@@ -165,13 +165,13 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
 # ******************腾讯云*****************
-TENCENT_SECRET_ID = "AKIDsZ0B5i49yWnmVx82g38wSihOoyqRloa5"
+TENCENT_SECRET_ID = "XXXXXXXXXXXXXXXXXXXXXXXXXX"
 
-TENCENT_SECRET_KEY= "FDuKWR6UaPyFGzRdYCZfU1HGyOXP0KM7"
+TENCENT_SECRET_KEY= "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
 
-APP_ID = 'wx73f97bd07bb06de9'
+APP_ID = 'wXXXXXXXXXXXXXXXXXXX'
 
-APPSECRET = '5f533527928d334b9a3bfc3b5210d09d'
+APPSECRET = 'XXXXXXXXXXXXXXXXXXXXXX'
 code2Session = 'https://api.weixin.qq.com/sns/jscode2session?appid={}&secret={}&js_code={}&grant_type=authorization_code'
 
 getwxacunlim = 'https://api.weixin.qq.com/wxa/getwxacodeunlimit?access_token={}'

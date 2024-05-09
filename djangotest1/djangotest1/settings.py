@@ -21,7 +21,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-(gm3@r*t&0#!6-etl@i6o#g7yncb_%q3p+^=yum%l1&%)-ly45'
+SECRET_KEY = '!!!!!!!!!!!!!!!!!!!!!!!'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -129,8 +129,6 @@ USE_I18N = True
 USE_TZ = True
 
 
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/4.0/howto/static-files/
 CACHES = {  #redis 的配置
     "default": {
         "BACKEND": "django_redis.cache.RedisCache",
@@ -154,17 +152,14 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
 # ******************腾讯云*****************
-TENCENT_SECRET_ID = "AKIDsZ0B5i49yWnmVx82g38wSihOoyqRloa5"
+TENCENT_SECRET_ID = "XXXXXXXXXXXXXXXXXXXXXXXXX"
 
-TENCENT_SECRET_KEY= "FDuKWR6UaPyFGzRdYCZfU1HGyOXP0KM7"
-#
-# APP_ID = 'wx73f97bd07bb06de9'
-#
-# APPSECRET = '5f533527928d334b9a3bfc3b5210d09d'
+TENCENT_SECRET_KEY= "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
 
-APP_ID = 'wxd3329cc8fe3649ed'
 
-APPSECRET = '7a45b55d335fd12d7ed6423c9f45871f'
+APP_ID = 'XXXXXXXXXXXXXXXXXXXXXXXXX'
+
+APPSECRET = 'XXXXXXXXXXXXXXXXXXXXXXXX'
 code2Session = 'https://api.weixin.qq.com/sns/jscode2session?appid={}&secret={}&js_code={}&grant_type=authorization_code'
 
 getwxacunlim = 'https://api.weixin.qq.com/wxa/getwxacodeunlimit?access_token={}'
