@@ -1,0 +1,52 @@
+<!--pages/register/register.wxml-->
+<view class="wrapper">
+  <!-- <text class='title'>扫码搜题</text> -->
+  <text class='title'>注册</text>
+
+  <view class="loginform">
+    <view id="owl-login">
+
+      <image class="head" src="/images/owl-login.png"></image>
+      <view class="hand {{inputPassword ? 'hand-password' : ''}}"></view>
+      <view class="hand hand-r {{inputPassword ? 'hand-r-password' : ''}}"></view>
+      <view class="arms">
+        <image class="arm {{inputPassword ? 'arm-password' : ''}}" src="/images/owl-login-arm.png"></image>
+        <image class="arm arm-r {{inputPassword ? 'arm-r-password' : ''}}" src="/images/owl-login-arm.png"></image>
+      </view>
+    </view>
+    <view class="login-group">
+      <view class="usersinfo">
+        <input type="text" bindinput="bindAccountInput" placeholder="学号" maxlength="11" value="{{account}}"></input>
+      </view>
+      <view class="usersinfo">
+        <input type="password" bindinput="bindPasswordInput" bindfocus="pwdFocus" bindblur="pwdBlur" placeholder="密码"  value="{{password}}"></input>
+      </view>
+      <view class="usersinfo">
+        <input type="password" bindinput="bindrepwdInput"  placeholder="确认密码" value="{{repassword}}"></input>
+
+      </view>
+      <view class="chkbar">
+        <view class="chkinfo">
+            <input type="text" placeholder="验证码" maxlength="5" value="{{chkcode}}" bindinput="bindchkcodeInput"/>        
+        </view>
+        <view class="chkcode">
+            <image  src="http://127.0.0.1:8000/regist/pic/code/"  mode="aspectFit"></image>
+        </view>
+       
+      </view>
+      
+      
+      <view class='flex flex-direction'>
+        <button class='bg-green margin-tb-sm lg' bindtap="bindRegister" disabled="{{isLogining}}">注册</button>
+      </view>
+
+      <view class='bottom'>
+        <text bindtap="reset">重置数据</text>
+        <text bindtap="wxlogin">微信登陆</text>
+        <!-- <text bindtap="answer">遇到问题</text> -->
+      </view>
+
+    </view>
+  </view>
+</view>
+

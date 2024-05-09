@@ -1,0 +1,108 @@
+<!--pages/entry/entry.wxml-->
+<view class="pag">
+    <view style="height:{{statusheight +'px'}}; position: sticky; top: 0; width: 100%;background-color: rgb(255, 255, 255);"></view>
+    <view class="tit" style="top: {{statusheight + 'px'}};">
+        <view class="v1">
+            <view class="search">
+                <van-icon name="scan" size="25px"  bindtap="search"/>
+            <!-- <image class='seeicon' mode="aspectFit" src="../../icons/搜索.png" ></image> -->
+            <text bindtap="cancelcomment" class="{{usecomment? 'slepted':'bigtitactive'}}">最 新</text>
+            <text bindtap="getneewest" class="{{usenews? 'bigtitactive':'slepted'}}">最 热</text>
+            <navigator url="/pages/video/video?videoID={{firstid}}">
+                <text bindtap="tovideolist" class="{{usecommentsssss? 'bigtitactive':'slepted'}}">推 荐</text>
+            </navigator>
+            
+            <!-- <text bindtap="tocomment" class="{{usecomment? 'bigtitactive':''}}">推 荐</text> -->
+        </view>
+        </view>
+    <view class="catigory">
+        <view class="names">
+            <text class="{{currentselect===-1? 'active':'txnm'}}" bindtap="allclass">全部</text>
+        </view>
+    <scroll-view class="course" scroll-x="true" >
+        <view wx:for="{{courses}}" wx:key="index" wx:for-index='id' wx:for-item='course' class="names">
+            <text class="{{id===currentselect?'active':'txnm'}}" data-id="m{{id}}" data-index="{{id}}" bindtap="choosekind">{{course.title}}</text>
+        </view>
+        <view class="names">
+        <text class="active"></text>
+        </view>
+
+    </scroll-view>
+    </view>
+    </view>
+
+
+    <view class="naviv">
+        <!-- <view class="videonavi" style="width: 100%; ">    -->
+        <view class="twoclom">
+
+            <view class="clom" >
+            <view class="onevid" wx:for="{{classlist}}" wx:if="{{(currentselect===-1||item.topic.id===currentselect+1)&&(index%2==0)}}" wx:key="index" > 
+            <navigator url="/pages/video/video?videoID={{item.videoID}}">
+                <image class="vipi" src="{{item.icon}}" mode="widthFix"></image>
+            </navigator>    
+                
+                <view class="words">
+                {{item.content}}
+                </view>
+                <view class="botmline">
+                <view class="scptu">
+                <image src="{{item.user.avatar}}"></image>         
+                </view>
+                <view class="idnm">
+                {{item.user.nickname}}
+                </view>
+                </view>
+                
+            </view>        
+            </view>
+            <view class="clom" >
+            <view class="onevid" wx:for="{{classlist}}" wx:if="{{(currentselect===-1||item.topic.id===currentselect+1)&&(index%2==1)}}" wx:key="index" > 
+            <navigator url="/pages/video/video?videoID={{item.videoID}}">
+                <image class="vipi" src="{{item.icon}}" mode="widthFix"></image>
+            </navigator>    
+                
+                <view class="words">
+                {{item.content}}
+                </view>
+                <view class="botmline">
+                <view class="scptu">
+                <image src="{{item.user.avatar}}"></image>         
+                </view>
+                <view class="idnm">
+                {{item.user.nickname}}
+                </view>
+                </view>
+                
+            </view> 
+            </view>
+            <!-- <view class="clom" >
+            <view class="onevid" wx:for="{{classlist1}}"  wx:if="{{currentselect===-1||item.topic.id===currentselect+1}}" wx:key="index">    
+                <navigator url="/pages/video/video?videoID={{item.videoID}}"> 
+                <image class="vipi" src="{{item.icon}}" mode="widthFix"></image>
+                </navigator>
+                <view class="words">
+                <text>{{item.content}}</text>
+                </view>
+                <view class="botmline">
+                <view class="scptu">
+                <image src="{{item.user.avatar}}"></image>         
+                </view>
+                <view class="idnm">
+                {{item.user.nickname}}
+                </view>
+                </view>
+                
+            </view>        
+            </view> -->
+        </view>
+            
+            
+        </view>
+        
+    <!-- </view> -->
+</view>
+<view style="height: 150rpx;"></view>
+<tabbar selected="{{0}}" showrelease="{{info.ismanager}}"></tabbar>
+
+

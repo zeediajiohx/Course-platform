@@ -1,0 +1,58 @@
+{
+    "pages": [
+        "pages/index/index",
+        "pages/entry/entry",
+        "pages/logs/logs",
+        "pages/release/release",
+        "pages/service/me",
+        "pages/login/login",
+        "pages/wxlogin/wxlogin",
+        "pages/empower/empower",
+        "pages/register/register",
+        "pages/scan/scan",
+        "pages/video/video",
+        "pages/imagenews/imagenews",
+        "pages/topic/topic",
+        "pages/complinfo/complinfo",
+        "pages/publishSuccess/publishSuccess",
+        "pages/home/home"
+    ],
+    "tabBar": {
+        "custom": true,
+        "color": "#000000",
+        "selectedColor": "#f83838",
+        "backgroundColor": "#ffffff",
+        "borderStyle": "white",
+        "list": [
+            {
+                "pagePath": "pages/entry/entry",
+                "text": "首页"
+            },
+            {
+                "pagePath": "pages/release/release",
+                "text": "发布"
+            },
+            {
+                "pagePath": "pages/wxlogin/wxlogin",
+                "text": "我的"
+            }
+        ]
+    },
+    "window": {
+        "backgroundTextStyle": "light",
+        "backgroundColor": "#FAFAFA",
+        "navigationBarBackgroundColor": "#FCFCFC",
+        "navigationBarTitleText": "扫码搜题",
+        "navigationBarTextStyle": "black"
+    },
+    "permission": {
+        "scope.userLocation": {
+            "desc": "你的位置信息将用于小程序位置接口的效果展示"
+        }
+    },
+    "usingComponents": {
+        "van-search": "@vant/weapp/search/index"
+    },
+        "lazyCodeLoading": "requiredComponents",
+    "sitemapLocation": "sitemap.json"
+}

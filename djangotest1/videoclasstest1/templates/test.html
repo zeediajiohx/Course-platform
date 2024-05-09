@@ -1,0 +1,31 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="shortcut icon" href="{% static 'img/favicon.ico' %}" type="image/x-icon">
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div>{{ n1 }}</div>
+    <div>
+        {% for item in n2 %}
+          <div>{{ item }}</div>
+        {% endfor %}
+    </div>
+<hr/>
+<div>
+    {% for k,v in n3.items %}
+        <li>{{ k }}={{ v }}</li>
+    {% endfor %}
+</div>
+<hr/>
+{% for lab in n4 %}
+    {% if lab.name == "hhh" %}
+        <h1>hhh</h1>
+    {% else %}
+        <div>{{ lab.salary }} {{ lab.role}}</div>
+    {% endif %}
+{% endfor %}
+</body>
+</html>

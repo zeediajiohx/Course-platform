@@ -1,0 +1,12 @@
+<!--pages/me/me.wxml-->
+<!-- telephone login -->
+<view>用户名:</view>
+  <input bindinput="logID" type="text" placeholder="请输入手机号"/>
+
+  <view>验证码:  
+  <view  bindtap="messchk">获取验证码</view> 
+  </view>
+  <input bindinput="logchk" type="text" placeholder="请输入验证码"/>
+
+<button bindtap="login">登录</button>
+

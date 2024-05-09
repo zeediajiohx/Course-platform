@@ -1,0 +1,42 @@
+/* pages/scan/scan.wxss */
+/**scan.wxss**/
+.scan-view {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    background-color: #ffffff;
+    position: fixed;
+    align-items: center;
+    justify-content: space-around;
+  }
+  
+  .scan-border {
+    width: 100%;
+    height: 100%;
+    /* border: 6rpx solid #08FDFE; */
+    border-radius: 10rpx;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .scan-camera {
+    
+    width: 100%;
+    height: 100%;
+    border-radius: 6rpx;
+    margin: 30rpx;
+  }
+  
+  
+  .scan-animation {
+    position: absolute;
+    top: 10rpx;
+    /* left: 10rpx; */
+    width: 100%;
+    height: 8rpx;
+    background-color: #08fe14;
+    border-radius: 50%;
+  }
+  

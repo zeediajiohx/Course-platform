@@ -1,0 +1,4 @@
+/* pages/me/me.wxss */
+input{
+    border:1rpx solid #ddd;
+}

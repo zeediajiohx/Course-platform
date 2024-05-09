@@ -1,0 +1,67 @@
+<!--pages/complinfo/complinfo.wxml-->
+<van-cell-group>
+  <van-field
+    value="{{nickname}}"
+    label="修改昵称"
+    placeholder="请输入昵称"
+    required
+    clearable
+    error = "{{!nickname}}"
+    bind:change="onChangename"
+  />
+  <!-- <van-field
+    
+    value="{{ phone }}"
+    label="手机号"
+    placeholder="请输入手机号"
+    error-message="{{phonemessage}}"
+    bind:change="onChangephone"
+  /> -->
+  <view style="margin-left: 40rpx;">
+  <text>
+  用户标签（选填）
+  </text>
+  </view>
+  <van-field
+    model:value="{{ acadamy }}"
+    label = "学院"
+    placeholder="请输入学院名称"
+
+    clearable
+    bind:change="onChangeacademy"
+
+  />
+  <van-field
+    model:value="{{ major}}"
+    label = "专业"
+    placeholder="请输入专业名"
+
+    clearable
+    bind:change="onChangemajor"
+  />
+  <van-field
+    model:value="{{grade}}"
+    label = "年级"
+    placeholder="请输入入学年份"
+    clearable
+    bind:change="onchangegrade"
+  />
+  <van-field
+    model:value="{{gender}}"
+    label = "性别"
+    placeholder="请选择"
+    bind:change = "onchangegender"
+
+  />
+
+
+
+</van-cell-group>
+
+<view>
+    <button bindtap="submit" disabled="{{complitied}}">确定</button>
+</view>
+
+<view style="margin: 140rpx;text-align: center; ">
+    <text style="color: rgb(207, 207, 205);">*以上信息仅作为个性化推荐依据，不为它用，可多次修改重置</text>
+</view>

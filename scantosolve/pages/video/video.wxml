@@ -1,0 +1,358 @@
+<!--pages/video/video.wxml-->
+<!-- 纯视频 -->
+<view wx:if="{{videopage}}" class="videocontainer" style="height: {{screenheigh+'px'}};">
+    <!-- <view wx:for="{{videolist}}">{{item.images.cos_path}}</view> -->
+    <view style="height:{{statusheight +'px'}}; width: 100%;background-color: rgb(54, 54, 54);">" "</view>
+    <view class="tit" style="top:{{statusheight+'px'}} ;">
+        <view class="v1">
+            <van-icon name="scan" color="white" size="25px"  bindtap="search"/>
+            <view class="search">
+                
+
+            <!-- <image class='seeicon' mode="aspectFit" src="../../icons/搜索.png" ></image> -->
+            <text bindtap="cancelcomment" class="selept">全 部</text>
+            <text bindtap="tocomment" class="bigtitactive">推 荐</text>
+        </view>
+        </view> 
+    </view>
+    <view class="page-section " >
+        <swiper    class="vidswiper"  vertical  circular="true" bindchange="loadmore" bindanimationfinish="nextclass">
+        <!-- vertical  circular="true" bindchange="loadmore" -->
+          <block wx:for="{{news}}"  wx:key="videoID" wx:for-index="pageidx">
+            <swiper-item >
+
+                <view class="swiperpage">
+                    
+                  
+                    
+                  <view class="buttom-view" >
+                  <view class="comment-area" style="background-color: white;" wx:if="{{isShowCommentModal}}">
+                      <view class="top" >
+                          <image class="big-avatar" src="{{item.user.avatar}}"></image>
+                          <text>评论</text>
+                          <view class="reply" wx:if="{{reply.cid}}">回复 {{reply.nickname}}
+                              <icon type="clear" size="15" bindtap="onClickClearReply"></icon>
+                          </view>
+                      </view>
+                      <textarea fixed="true" placeholder="评论内容..." bindinput="inputComment"></textarea>
+                      <view class="btn">
+                          <view class="publish" bindtap="onClickPostComment">发布</view>
+                      </view>
+                      <view class="hide">
+                      <icon type="cancel" size="30" bindtap="onClickCancelCommentModal"></icon>
+                      </view>
+                  </view>
+                  <view class="text-input" wx:else>
+                      <!-- <image class="big-avatar" src="/icons/评论.png"></image> -->
+  <!-- *****************************************内容头像二维码************************* -->
+                      <view class="botcontent" data-paind="{{pageidx}}" >
+                          <view class="auth" >
+                              <view class="authavatar" bindtap="detailcontent" data-paind="{{pageidx}}">
+                                  <image src="{{item.user.avatar}}" ></image>
+                              </view>
+                              <view class="authnickname" bindtap="detailcontent" data-paind="{{pageidx}}" >
+                                  {{item.user.nickname}}
+                              </view>
+                              <view class="follow">
+                                  <view wx:if="{{item.is_care}}" class="cancelbtn" bindtap="Followauth" data-paind="{{pageidx}}" data-uid="{{item.user.userID}}">已关注</view>
+                                  <view wx:else class="carebtn" bindtap="Followauth" data-paind="{{pageidx}}" data-uid="{{item.user.userID}}">关 注</view>
+                                  
+                                  </view>
+  
+  
+                          </view>
+  
+                          <view class="contents">
+                              {{item.content}}
+                          </view>
+                          <!-- <view class="cretime">
+                              {{news.createtime}}
+                          </view> -->
+                      </view>
+                      <view wx:if="{{scanbutton}}" class="qrcodeblock" >
+                          <image src="{{codeurl}}" bindtap="priviewpic" mode="aspectFit" show-menu-by-longpress>
+                          </image>
+                      </view>
+  <!-- ***************************底部小图标************************************* -->
+                      <input placeholder="说点什么..." bindtap="onClickShowCommentModal" data-nid="{{item.videoID}}" data-depth="{{1}}" data-paind="{{pageidx}}"></input>
+                      <view class="options">
+                      <view>
+                          <van-icon name="like" bindtap="doFavor"  data-paind="{{pageidx}}" data-news="{{item.videoID}}" wx:if="{{item.is_favor}}" color="#f05e54" size='60rpx'/>
+                          
+                          <van-icon bindtap="doFavor"  data-paind="{{pageidx}}" data-news="{{item.videoID}}" wx:else name="like-o" color="#ffffff" size='60rpx'/>
+  
+                          <text style="color: rgb(235, 235, 235);">{{item.like}}</text>
+                      </view>
+                      <view>
+                          
+                          <van-icon name="star" bindtap="docollect"  data-paind="{{pageidx}}" data-news="{{item.videoID}}" wx:if="{{item.is_collect}}" color="#f05e54" size='60rpx'/>
+  
+                          <van-icon name="star-o" color="#ffffff" size='60rpx' bindtap="docollect"  data-paind="{{pageidx}}" data-news="{{item.videoID}}" wx:else />
+                          
+                          <text style="color: rgb(235, 235, 235);">{{item.collect}}</text>
+                      </view>
+                      <view>
+                          <van-icon name="comment-o" data-paind="{{pageidx}}" color="#ffffff" size='60rpx'bind:click="showcomment"/>
+                          <text style="color: rgb(235, 235, 235);">{{item.comment_count}}</text>
+                      </view>
+                      <van-icon name="qr" color="#ffffff" size='60rpx' bind:click="scanclick"/>
+                      </view>
+                  
+                  </view>
+                  </view>
+                  <view class="vivi">
+                    
+                    <!-- <video wx:if="{{index==thisindex}}" src="{{news.images[0].cos_path}}" id='myvideo' danmu-list="{{danmu}}" danmu-btn autoplay loop direction="90" show-snapshot-button enable-danmu class="vi"> -->
+                    <video wx:if="{{pageidx===thisindex}}" src="{{item.images[0].cos_path}}" id='myvideo' webkit-playsinline="true" x-webkit-airplay="true" playsinline="true" x5-video-player-type="h5" x5-video-player-fullscreen="true" width="100%" height="100%" preload="auto" autoplay loop  show-snapshot-button class="vi" direction="0"         
+                    show-mute-btn object-fit="contain"
+                     
+                     >
+                    </video> 
+                    <!-- <view class="botcontent" bindtap="detailcontent">
+                        <view class="auth" >
+                          <view class="authavatar" bindtap="detailcontent">
+                              <image src="{{news.user.avatar}}" bindtap="detailcontent"></image>
+                          </view>
+                          <view class="authnickname" bindtap="detailcontent">
+                              {{news.user.nickname}}
+                          </view>
+  
+                        </view>
+  
+                        <view class="contents">
+                            {{news.content}}
+                        </view>
+                    </view>
+                    <view wx:if="{{scanbutton}}" class="qrcodeblock" >
+                      <image src="{{news.qrcode}}" mode="aspectFit">
+                      </image>
+                      </view> -->
+                  </view>
+                </view>
+              <!-- <view >
+                {{item.images.cos_path}}
+              </view> -->
+                <!-- <view class="swipblock"> -->
+
+                  <!-- <view style="color: rgb(8, 8, 8); font-size:xx-small;"> {{item.images.cos_path}}:{{danmulist}}:hhh{{news}}</view> -->
+                <!-- </view> -->
+                
+
+            </swiper-item>
+            
+          </block>
+        </swiper>
+    </view>
+    <page-container 
+            show="{{showpage}}"
+            round 
+            overlay
+            duration="300"
+            position="bottom"
+            close-on-slide-down="{{false}}"
+            custom-style="{{customStyle}}"
+            overlay-style="background-color: rgba(0, 0, 0, 0.7)"
+            >
+            <scroll-view style="height:1100rpx ;"  class="commentlist" wx:if="{{showcomment}}" >
+                <view class="detail-page" wx:if="{{showcomment}}" >
+                    <view style="margin: 50rpx;">评论 - {{thiscomment.comment_count}}</view>
+                    <view>
+                        <view class="parent" wx:for="{{thiscomment.comment}}" wx:key="index" wx:for-index="idx" wx:for-item="comitem" style="margin: 10rpx;">
+                            <view>
+                                <view class="replyauth">
+                                    <image src="{{comitem.user__avatar}}"></image>
+                                    <view style="margin: 10rpx;">{{comitem.user__nickname}}</view>
+                                    
+                                </view>
+                                
+                            <text style="margin-left:130rpx;">{{comitem.content}}</text> 
+                            <text bindtap="onClickShowCommentModal" 
+                            data-nid="{{thiscomment.videoID}}" 
+                            data-cid="{{comitem.id}}" 
+                            data-nickname="{{comitem.user__nickname}}" 
+                            data-depth="{{comitem.depth + 1}}" 
+                            data-rid="{{comitem.id}}" 
+                            data-rootindex="{{idx}}"
+                            data-paind="{{pageidx}}" style="margin-left: 15rpx;margin-right: 15rpx; padding: 10rpx;border-radius: 10rpx;background-color: red;color: white;" >回复</text>
+                            <view style="margin-left: 40rpx;">{{thiscomment.create_data}}</view>
+
+                            </view>
+                            <view class="child" wx:if="{{comitem.child}}" >
+                            <view wx:for="{{comitem.child}}" wx:for-item="node" wx:key="index">
+                                <view>
+                                    <view class="replyauth2">
+                                    <image src="{{node.user__avatar}}"></image>
+                                    <view style="margin: 10rpx;">{{node.user__nickname}}</view>
+                                </view>
+                                <text>{{node.content}}</text>
+                                <text bindtap="onClickShowCommentModal" 
+                                data-nid="{{thiscomment.videoID}}" 
+                                data-cid="{{node.id}}"  
+                                data-nickname="{{node.user__nickname}}" 
+                                data-depth="{{node.depth + 1}}" 
+                                data-rid="{{comitem.id}}" 
+                                data-rootindex="{{idx}}" style="margin-left: 15rpx;margin-right: 15rpx;"
+                                >回复</text>
+                                </view>
+                            </view>
+                            <view bindtap="getMore" data-root="{{comitem.id}}" data-idx="{{idx}}"  data-paind="{{pageidx}}" style="border-bottom: tomato;">查看更多</view>
+                            </view>
+                        </view>
+                    </view>
+                </view>
+            </scroll-view>
+
+            <view wx:if="{{showcontent}}" >
+                
+                <view class="detailcontent" wx:if="{{showcontent}}" >
+                   
+                    <view class="auth">
+                        <view class="authavatar">
+                            <image src="{{thisdetail.user.avatar}}"></image>
+                        </view>
+                        <view class="authnickname">
+                            {{thisdetail.user.nickname}}
+                        </view>
+                        
+
+                    </view>
+
+                    <view class="detcontents">
+                        {{thisdetail.content}}
+                    </view>
+                    <view class="detcontents" wx:if="{{thisdetail.topic.title}}">
+                    # {{thisdetail.topic.title}}
+                    </view>
+                    <view class="detcontents" wx:if="{{thisdetail.address}}">
+                    @ {{thisdetail.address}}
+                    </view>
+                    <view class="cretime">
+                       发布于： {{thisdetail.createtime}}
+                    </view>
+                </view>
+            </view>
+                
+            </page-container>
+    <!-- <page-container 
+    show="{{showcontent}}"
+    round 
+    overlay
+    duration="300"
+    position="bottom"
+    close-on-slide-down="{{false}}"
+    custom-style="height:70%; background-color: rgba(0, 0, 0, 0.7)"
+    overlay-style="background-color: rgba(0, 0, 0, 0.7)"
+    >
+        <view class="detailcontent">
+            <view class="auth">
+            <view class="authavatar">
+                <image src="{{news.user.avatar}}"></image>
+            </view>
+            <view class="authnickname">
+                {{news.user.nickname}}
+            </view>
+
+            </view>
+
+            <view class="contents">
+                {{news.content}}
+            </view>
+            <view class="cretime">
+                {{news.createtime}}
+            </view>
+        </view>
+
+    </page-container> -->
+
+</view>
+
+<!-- 文本图片 -->
+<!-- <view wx:else>
+    <view class="container">
+
+<swiper autoplay="{{true}}" indicator-dots="{{true}}" class="images">
+    <swiper-item wx:for="{{news.images}}" wx:key="index" >
+        <view class="videocontainer" wx:if="{{videopage}}" >
+          <video src="{{item.cos_path}}"></video>
+        </view>
+      <image wx:else src="{{item.cos_path}}" mode="aspectFill" style="height: 800rpx;"></image>
+      
+    </swiper-item>
+</swiper>
+<view  class="author">
+  <image class="avatar" src="{{news.user.avatar}}"></image>
+  {{news.user.nickname}}
+
+  <view style="margin-left: 100rpx;">关注</view>
+</view>
+<view>{{news.content}}</view>
+
+<view style="margin: 20rpx;">浏览数量：{{news.viewer.count}}</view>
+<view style=" padding:20rpx;">
+  <image class="small-avatar" wx:for="{{news.viewer.result}}" src="{{item.avatar}}" wx:key="index" ></image>
+  <text>刚刚看过</text>
+</view>
+
+
+<view style="margin: 20rpx;">评论 - {{news.comment_count}}</view>
+
+<view>
+  <view class="parent" wx:for="{{news.comment}}" wx:key="index" wx:for-index="idx" style="margin: 10rpx;">
+    <view>
+    <text>{{item.content}}</text> 
+    <text bindtap="onClickShowCommentModal" 
+      data-nid="{{news.id}}" 
+      data-cid="{{item.id}}" 
+      data-nickname="{{item.user__nickname}}" 
+      data-depth="{{item.depth + 1}}" 
+      data-rid="{{item.id}}" 
+      data-rootindex="{{idx}}" >回复</text>
+
+    </view>
+    <view class="child" wx:if="{{item.child}}" >
+      <view wx:for="{{item.child}}" wx:for-item="node" wx:key="index">
+        <view>
+          <text>{{node.content}}</text>
+          <text bindtap="onClickShowCommentModal" 
+          data-nid="{{news.id}}" 
+          data-cid="{{node.id}}"  
+          data-nickname="{{node.user__nickname}}" 
+          data-depth="{{node.depth + 1}}" 
+          data-rid="{{item.id}}" 
+          data-rootindex="{{idx}}"
+           >回复</text>
+        </view>
+      </view>
+      <view bindtap="getMore" data-root="{{item.id}}" data-idx="{{idx}}" >查看更多</view>
+    </view>
+  </view>
+</view>
+
+</view>
+<view class="commentlist">
+  <view style="margin: 20rpx;">相关推荐</view>
+</view>
+<view class="buttom-view">
+<view class="comment-area" wx:if="{{isShowCommentModal}}">
+  <view class="top">
+    <image class="big-avatar" src="{{news.user.avatar}}"></image>
+    <text>评论</text>
+    <view class="reply" wx:if="{{reply.cid}}">回复 {{reply.nickname}}
+      <icon type="clear" size="15" bindtap="onClickClearReply"></icon>
+    </view>
+  </view>
+  <textarea fixed="true" placeholder="评论内容..." bindinput="inputComment"></textarea>
+  <view class="btn">
+    <view class="publish" bindtap="onClickPostComment">发布</view>
+  </view>
+  <view class="hide">
+    <icon type="cancel" size="30" bindtap="onClickCancelCommentModal"></icon>
+  </view>
+</view>
+<view class="text-input" wx:else>
+  <image class="big-avatar" src="/icons/评论.png"></image>
+  <input placeholder="说点什么..." bindtap="onClickShowCommentModal" data-nid="{{news.id}}" data-depth="{{1}}"></input>
+</view>
+</view>
+
+</view> -->

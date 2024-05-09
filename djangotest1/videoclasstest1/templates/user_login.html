@@ -1,0 +1,19 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="shortcut icon" href="{% static 'img/favicon.ico' %}" type="image/x-icon">
+    <meta charset="UTF-8">
+    <title>admin</title>
+</head>
+<body>
+<form method="get">
+    {% csrf_token %}
+    {{ form.name.label }}:{{ form.name }}
+    {% for field in form %}
+        {{ field.label }}:{{ field }}
+    {% endfor %}
+</form>
+<button >tijiao</button>
+</body>
+</html>

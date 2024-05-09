@@ -1,0 +1,47 @@
+<!--pages/login/login.wxml-->
+<view class="wrapper">
+  <!-- <text class='title'>扫码搜题</text> -->
+  <text class='title'>管理员登录</text>
+
+  <view class="loginform">
+    <view id="owl-login">
+
+      <image class="head" src="/images/owl-login.png"></image>
+      <view class="hand {{inputPassword ? 'hand-password' : ''}}"></view>
+      <view class="hand hand-r {{inputPassword ? 'hand-r-password' : ''}}"></view>
+      <view class="arms">
+        <image class="arm {{inputPassword ? 'arm-password' : ''}}" src="/images/owl-login-arm.png"></image>
+        <image class="arm arm-r {{inputPassword ? 'arm-r-password' : ''}}" src="/images/owl-login-arm.png"></image>
+      </view>
+    </view>
+    <view class="login-group">
+      <view class="usersinfo">
+        <input type="text" bindinput="bindAccountInput" placeholder="管理员账号" value="{{account}}"></input>
+      </view>
+      <view class="usersinfo">
+        <input type="password" bindinput="bindPasswordInput" bindfocus="pwdFocus" bindblur="pwdBlur" placeholder="密码" value="{{password}}"></input>
+      </view>
+      <view class="chkbar" wx:if="{{showckcode}}">
+        <view class="chkinfo">
+            <input type="text" placeholder="验证码" value="{{chkcode}}" bindinput="bindchkcodeInput"/>        
+        </view>
+        <view class="chkcode">
+            <image  src="http://127.0.0.1:8000/login/pic/code/"  mode="aspectFit"></image>
+        </view>
+       
+      </view>
+      
+      
+      <view class='flex flex-direction'>
+        <button open-type="getUserInfo" class='bg-green margin-tb-sm lg' bindtap="bindIdentity" >登录</button>
+      </view>
+
+      <view class='bottom'>
+        <text bindtap="reset">手机号登录</text>
+        <text bindtap="wxlogin">微信登陆</text>
+        <!-- <text bindtap="answer">遇到问题</text> -->
+      </view>
+      
+    </view>
+  </view>
+</view>

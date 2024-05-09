@@ -1,0 +1,22 @@
+<!--components/tabbar.wxml-->
+<cover-view class="tab-bar">
+  <cover-view class="tab-bar-border"></cover-view>
+ 
+  <cover-view wx:for="{{list}}" wx:key="index" class="tab-bar-item" data-path="{{item.pagePath}}"  bindtap="switchTab" wx:if="{{showrelease}}">
+
+        <block >
+            <cover-view style="color: {{selected === index ? selectedColor : color}}">{{item.text}}</cover-view>
+        </block>
+
+    </cover-view>
+
+    <cover-view wx:for="{{list1}}" wx:key="index" class="tab-bar-item" data-path="{{item.pagePath}}"  bindtap="switchTab" wx:if="{{!showrelease}}">
+
+        <block >
+            <cover-view style="color: {{selected === index ? selectedColor : color}}">{{item.text}}</cover-view>
+        </block>
+
+    </cover-view>
+   
+</cover-view>
+

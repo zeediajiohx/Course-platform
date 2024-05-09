@@ -1,0 +1,136 @@
+<!--pages/wxlogin/wxlogin.wxml-->
+<view wx:if="{{info.nickName}}" class="infopage">
+    <view class="title">
+        <view class="user_img_wrap">
+        <!-- 背景图 -->
+            <view class="user_bg">
+            <!-- <image style="height: 320rpx;" src="{{info.avatarUrl}}" mode="aspectFill"></image> -->
+            
+            
+                <view class="user_info">
+                    <view class="user_icon" bindtap="loginout">
+                        <image src="{{info.avatarUrl}}"> </image>
+                    </view> 
+                    <view class="user_name" >{{info.nickName}}
+                <!-- 小标签 -->
+                        <view class="tags">
+                            <van-tag mark type="primary" color='#df4620' size="medium" style="margin-right: 10rpx;" wx:if="{{info.ismanager}}">
+                                管理员
+                                <!-- <image src="/icons/female.png" style="width: 30rpx; height: 30rpx;" mode="aspectFit"></image> -->
+                            </van-tag>
+                                <view wx:for="{{tags}}"   wx:key="item" style="margin-right: 10rpx;">
+                                <van-tag mark type="primary" color='#a1a1a1' >
+                                {{item}}
+                            </van-tag>
+                        </view>
+                    </view>
+                </view>
+                </view>
+            <!-- 粉丝，关注 -->
+                <view class="numtag">
+                    <view class="commutag" wx:for="{{commuinum}}">
+                    <view>{{item}}</view>
+                    <view>{{index}}</view>
+                    </view>
+                    <navigator url="/pages/complinfo/complinfo">
+                        <button >个性标签</button>
+                    </navigator>
+                </view>
+            </view>
+        </view> 
+    <!-- 收藏点赞贴 -->
+        <view class="v1">
+            <view class="search">
+            <text class="{{pagestatus===0?'activated':''}}" bindtap="tomyrecord">发布</text>
+            <text class="{{pagestatus===1?'activated':''}}" bindtap="tomyfavor">点赞</text>
+            <text class="{{pagestatus===2?'activated':''}}" bindtap="tomycollect">收藏</text>
+            </view>
+        </view>
+    </view>
+    <!-- <view class="videoswiper"> -->
+        <!-- <swiper bindchange="swipstatus" current="{{pagestatus}}" style="height: 100%;">
+            <swiper-item wx:for="{{[0, 1, 2]}}"> -->
+                <van-empty wx:if="{{!classlist}}" class="custom-image" image="network" description="还没有哦"/>
+                <view class="naviv" wx:else>
+                    <view class="videonavi" style="width: 100%; ">   
+                    <view class="twoclom">
+
+                        <view class="clom" >
+                        <view class="onevid" wx:for="{{classlist}}" wx:key="index"> 
+                        <navigator url="{{navigturl}}={{item.videoID}}">
+                            <image class="vipi" src="{{item.icon}}" mode="widthFix"></image>
+                        </navigator>    
+                            
+                            <view class="words">
+                            {{item.content}}
+                            </view>
+                            <view class="botmline">
+                            <view class="scptu">
+                            <image src="{{item.user.avatar}}"></image>         
+                            </view>
+                            <view class="idnm">
+                            {{item.user.nickname}}
+                            </view>
+                            </view>
+                            <!-- <view wx:if="{{pagestatus===0}}">
+                                <button bindtap="delete">删除</button>
+                            </view> -->
+                        </view>        
+                        </view>
+
+                        <view class="clom" >
+                        <view class="onevid" wx:for="{{classlist1}}" wx:key="index">    
+                            <navigator url="{{navigturl}}={{item.videoID}}"> 
+                            <image class="vipi" src="{{item.icon}}" mode="widthFix"></image>
+                            </navigator>
+                            <view class="words">
+                            <text>{{item.content}}</text>
+                            </view>
+                            <view class="botmline">
+                            <view class="scptu">
+                            <image src="{{item.user.avatar}}"></image>         
+                            </view>
+                            <view class="idnm">
+                            {{item.user.nickname}}
+                            </view>
+                            </view>
+                            
+                        </view>        
+                        </view>
+                    </view>
+                        
+                        
+                    </view>
+                </view>
+            <!-- </swiper-item>
+        </swiper> -->
+    <!-- </view> -->
+    <view style="height: 150rpx;" ></view>
+    <!-- <tabbar wx:if="{{info.ismanager}}" selected="{{2}}" showrelease="{{info.ismanager}}"></tabbar> -->
+    <tabbar selected="{{info.ismanager? 2:1}}" showrelease="{{info.ismanager}}"></tabbar>
+</view>
+  
+  <!-- 登录按钮 -->
+  <view wx:else class="user_log">
+    <view>
+      <image src="../../icons/enterpic.png" mode="aspectFit"></image>
+    </view>
+      <button class="empower" wx:if="{{canIUseGetUserProfile}}" bindtap="getUserProfile"> 微信授权登录 </button>
+      <button wx:else open-type="getUserInfo" bindgetuserinfo="getUserInfo" class="empower"> 授权登录 </button>
+      <button class="pswdlogbutn" bindtap="pswdlogin">已有账号密码登录</button>
+      <tabbar selected="{{1}}" showrelease="{{info.ismanager}}"></tabbar>
+  </view>
+
+
+<!-- <view class="container">
+  <view class="userinfo">
+    <block wx:if="{{!hasUserInfo}}">
+      <button wx:if="{{canIUseGetUserProfile}}" bindtap="getUserProfile"> 获取头像昵称 </button>
+      <button wx:else open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
+    </block>
+    <block wx:else>
+      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
+      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+    </block>
+  </view>
+</view> -->

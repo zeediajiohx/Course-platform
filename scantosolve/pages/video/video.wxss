@@ -1,0 +1,431 @@
+/* pages/video/video.wxss */
+.container{  
+
+  }
+  .tit{
+      /* top :100rpx; */
+    position: absolute;
+    /* background-color: rgba(235, 232, 232, 0.5); */
+    z-index: 10;
+    width: 100%;
+  }
+
+
+.v1{
+    /* margin-top: 20rpx; */
+    width: 100%;
+    left: 0;
+    height: 80rpx;
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    background-image: linear-gradient(#30303075,#ffffff00);
+    align-items: center;
+    z-index: 10;
+    /* border-bottom-color: rgb(160, 155, 154);
+    border-bottom-width: 3rpx;
+    border-bottom-style: solid; */
+}
+.v1 van-icon{
+    margin-left: 20px;
+    z-index: 10;
+}
+.search{
+    display: flex;
+    flex-direction: row;
+    text-shadow: 1px 1px 2px #000000;
+   /* background-color: saddlebrown; */
+    padding-left: 10rpx;
+    justify-content: space-around;
+    align-items: center;
+    width: 520rpx;
+    z-index: 10;
+    
+}
+.bigtitactive{
+    color:white;
+    font-size: 35rpx;
+    font-weight: 800;
+    border-bottom-style:outset;
+    border-bottom-width: 10rpx;
+    border-bottom-color: rgb(238, 236, 236);
+    z-index: 10;
+}
+.selept{
+    color: rgb(231, 230, 230);
+    font-size: 33rpx;
+    font-weight: 600;
+    z-index: 10;
+    
+}
+.bigtit{
+    color: white;
+    font-weight: bold;
+
+}
+  .images{
+      display: block;
+      text-align: center;
+      height: 800rpx;
+      width: 100%;
+      /* height: ; */
+  }
+  .author{
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+  }
+  .avatar{
+      margin: 20rpx;
+    width: 70rpx;
+    height: 70rpx;
+    border-radius: 50%;
+  }
+  
+  .child{
+    margin-left: 40rpx;
+    margin-top: 20rpx;
+    background-color: #ddd;
+  }
+  
+  
+  .big-avatar {
+    height: 60rpx;
+    width: 60rpx;
+    border-radius: 50%;
+    margin-right: 15rpx;
+  }
+  
+  .small-avatar {
+    height: 40rpx;
+    width: 40rpx;
+    border-radius: 50%;
+    margin-right: 10rpx;
+  }
+
+  .page-section{
+    width: 100%;
+    height: 100%;
+    /* position: absolute; */
+    position: relative;
+    top:0;
+
+    /* margin-bottom: 60rpx; */
+    /* background-color: rgb(212, 57, 57); */
+    /* border: cadetblue 100rpx ; */
+    /* box-sizing: border-box; */
+    /* padding: 0 0rpx; */
+    /* display: flex;
+    flex-direction: column;
+    justify-content: center; */
+
+  }
+  /* .page-section-spacing{
+    box-sizing: border-box;
+    padding: 120 0rpx;
+    position: relative;
+  } */
+  /* page-section-spacing swiper */
+  .vidswiper{
+    width: 750rpx;
+    height: 100%;
+    
+    /* background-color: darkmagenta; */
+    
+    /* position:fixed; */
+    /* height: 100%; */
+  }
+  
+  /* .swipblock{ */
+    /* width: 100%; */
+    /* height: 100%;
+    display: block; */
+    
+    /* display: table-cell;
+    vertical-align: middle;
+    text-align: center; */
+    /* display: block;
+    position: relative; */
+  /* } */
+  .swiperpage{
+      height: 100%;
+      width: 100%;
+      position: absolute;
+      left: 0;
+      top: 0;
+  }
+  .vivi{
+    height: 93%;
+    width: 100%;
+    z-index: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    /* background-color: #0000ff; */
+  }
+  .vivi video{
+    /* x5-video-orientation="portraint" */
+  }
+  .vi{
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    z-index: 0;
+    border:  2px solid rgb(5, 5, 5);
+    /* height: 95%; */
+    /* position:relative; */
+    /* position: absolute; */
+    
+    /* margin: 50% 50% 50% 50%; */
+    /* z-index: 0; */
+    /* position: absolute;
+    left: 0; */
+  }
+  .detailcontent{
+      bottom: 160rpx;
+      margin: 30rpx;
+  }
+  .detcontents{
+    margin: 15rpx;
+    color: white;
+  }
+  .botcontent{
+    position: absolute;
+    z-index: 2;
+    width: 100%;
+    height: 170rpx;
+    bottom:140rpx;
+    left: 16rpx;
+  }
+  .auth{
+      display: flex;
+      flex-direction: row;
+  }
+  .authavatar{
+      margin-left: 30rpx;
+      margin-right: 30rpx;
+  }
+  .authavatar image{
+    width: 60rpx;
+    height: 60rpx;
+    border-radius: 50%;
+  }
+  .authnickname{
+      color: white;
+    text-shadow: 1px 1px 2px #000000;
+
+  }
+  .follow {
+      margin-left: 50rpx;
+      
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+  }
+  
+  .carebtn {
+    padding: 10rpx 20rpx;
+    background-color: rgb(245, 62, 62);
+    color:white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50rpx;
+  }
+  .follow .cancelbtn{
+    padding: 10rpx 20rpx;
+    background-color: rgb(187, 184, 184);
+    color:white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50rpx;
+  }
+  .contents{
+      margin-left: 15rpx;
+      margin-top: 5rpx;
+      color: white;
+      height: 40rpx;
+      overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    text-shadow: 3rpx 3rpx 7rpx #000000;
+
+
+  }
+  .cretime{
+      color: rgb(230, 229, 229);
+      margin: 15rpx;
+  }
+
+
+  .qrcodeblock{
+    position: absolute;
+    z-index: 3;
+    width: 200rpx;
+    height: 200rpx;
+    background-color: white;
+    bottom:140rpx;
+    right: 20rpx;
+  }
+  .qrcodeblock image{
+    height: 200rpx;
+    width: 200rpx;
+  }
+  .buttom-view {
+    /* border-top: 1px solid rgb(82, 82, 82); */
+    /* background-color: rgb(224, 114, 114); */
+
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    z-index: 10;
+    
+  }
+  
+  .buttom-view .text-input {
+    display: flex;
+    height:7%;
+    padding: 20rpx;
+    /* padding: 20rpx; */
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+  }
+  
+  .buttom-view .text-input input {
+    /* border: 1rpx solid #ddd; */
+    background-color: #3b3b3b;
+    color: rgb(221, 219, 219);
+    width: 175rpx;
+    padding: 10rpx;
+    border-radius: 40rpx;
+    font-size: smaller;
+  }
+  
+  
+  .buttom-view .comment-area{
+    position: relative;
+    padding-top: 20rpx;
+    padding-left: 20rpx;
+    background-color: azure;
+    z-index: 12;
+  }
+  
+  .buttom-view .comment-area .top{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    padding-bottom: 10rpx;
+  }
+  .buttom-view .comment-area .reply{
+    margin-left: 30rpx;
+    font-size: 25rpx;
+    padding: 10rpx;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    background: #ddd;
+    border-radius: 10rpx;
+  }
+  
+  .buttom-view .comment-area .reply icon{
+    padding: 0 8rpx;
+  }
+  
+  .buttom-view .comment-area textarea{
+    border: 1rpx solid #ddd;
+    width: 628rpx;
+    padding: 20rpx;
+  }
+  .buttom-view .btn{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    margin-right: 20rpx;
+    padding: 10rpx 0;
+  }
+  
+  .buttom-view .btn .publish{
+    padding: 10rpx 20rpx;
+    background-color: #f72222;
+    color: white;
+    border-radius: 10rpx;
+  }
+  
+  .buttom-view .comment-area .hide{
+    position: absolute;
+    right: 0;
+    top: -20rpx;
+  }
+  .videocontainer{
+      width: 100%;
+      height: 100%;
+      /* position: relative; */
+      display: flex;
+      flex-direction: column;
+      /* justify-content: center; */
+      align-items: center;
+      position: relative;
+      background-color:rgb(56, 55, 55);
+      /* border: tomato; */
+  }
+  .videocontainer video{
+      width: 100%;
+      
+  }
+  .options{
+    padding-left: 30rpx;
+    display: flex;
+    width: 505rpx;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+  /* .commentlist{
+    position:static;
+  } */
+  .detail-page {
+    width: 100%;
+    height: 100%;
+    min-height: 300px;
+    /* position: static; */
+    /* display: flex;
+    flex-direction: column; */
+    /* white-space: nowrap; */
+    /* height: 100%; */
+    display: block;
+    overflow: scroll;
+    /* align-items: center;
+    justify-content: center; */
+  }
+  .replyauth{
+      display: flex;
+      flex-direction: row;
+        }
+.replyauth image{
+    height: 50rpx;
+    width: 50rpx;
+    margin: 15rpx;
+    border-radius: 50%;
+}
+.replyauth2 {
+    display: flex;
+    flex-direction: row;
+}
+.replyauth2 image{
+    height: 35rpx;
+    width: 35rpx;
+    margin: 12rpx;
+    border-radius: 50%;
+}
+  .video-text-input{
+
+  }
+  /* van-icon{
+    padding-left: 30rpx;
+  } */

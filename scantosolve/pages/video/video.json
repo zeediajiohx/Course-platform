@@ -1,0 +1,8 @@
+{
+  "usingComponents": {
+    "van-icon": "@vant/weapp/icon/index"
+  },
+  "navigationBarTextStyle": "white",
+  "navigationStyle": "custom",
+  "webview.allowsInlineMediaPlayback" :"true"
+}
